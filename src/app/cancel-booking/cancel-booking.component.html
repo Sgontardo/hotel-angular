@@ -1,0 +1,25 @@
+<h2>Cancel Booking</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Booking ID</th>
+      <th>Room ID</th>
+      <th>Guest Name</th>
+      <th>Check-in</th>
+      <th>Check-out</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings$ | async">
+      <td>{{ booking.id }}</td>
+      <td>{{ booking.roomId }}</td>
+      <td>{{ booking.guestName }}</td>
+      <td>{{ booking.checkIn | date }}</td>
+      <td>{{ booking.checkOut | date }}</td>
+      <td>
+        <button (click)="cancelBooking(booking.id)">Cancel</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
